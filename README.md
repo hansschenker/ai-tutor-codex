@@ -94,6 +94,43 @@ POST http://127.0.0.1:3001/api/ask
 }
 ```
 
+## Deploy Frontend And Backend On Render
+
+This repo includes `render.yaml`, which defines two Render services:
+
+- `ai-tutor-codex-api` - Node/Express API server.
+- `ai-tutor-codex-frontend` - static React/Vite frontend.
+
+In Render:
+
+1. Create a new Blueprint from the GitHub repo `hansschenker/ai-tutor-codex`.
+2. Render will detect `render.yaml`.
+3. Set these API service environment variables:
+
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL=gpt-5.2
+DATABASE_URL=your_neon_connection_string_here
+CORS_ORIGIN=https://your-render-frontend-url.onrender.com
+```
+
+4. Set the frontend service environment variable:
+
+```env
+VITE_API_URL=https://your-render-api-url.onrender.com
+```
+
+5. Deploy both services.
+
+If you keep the default service names from `render.yaml`, the expected URLs are:
+
+```text
+https://ai-tutor-codex-api.onrender.com
+https://ai-tutor-codex-frontend.onrender.com
+```
+
+If Render assigns different URLs, update `CORS_ORIGIN` on the API and `VITE_API_URL` on the frontend.
+
 ## Production Notes
 
 This prototype sends lesson context from the browser to the server. For production, store course content server-side, retrieve relevant lesson/source chunks on the backend, and only let authorized students ask questions against courses they can access.

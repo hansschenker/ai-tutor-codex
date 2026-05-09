@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "api": "tsx server/index.ts",
+    "start:api": "tsx server/index.ts",
     "dev:full": "concurrently \"npm:api\" \"npm:dev -- --host 127.0.0.1 --port 5174\"",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
@@ -22,7 +23,8 @@
     "express": "^5.2.1",
     "openai": "^6.37.0",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "tsx": "^4.21.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -38,7 +40,6 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
-    "tsx": "^4.21.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10"

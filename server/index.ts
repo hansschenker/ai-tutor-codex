@@ -180,6 +180,6 @@ app.post('/api/ask', async (request, response) => {
   }
 })
 
-app.listen(port, '127.0.0.1', () => {
-  console.log(`AI Tutor API running at http://127.0.0.1:${port}`)
+app.listen(port, '0.0.0.0', () => {
+  console.log(`AI Tutor API running on port ${port}`)
 })
