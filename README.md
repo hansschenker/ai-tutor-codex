@@ -2,6 +2,8 @@
 
 A local prototype of an AI Tutor course platform with separate teacher and student experiences.
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/hansschenker/ai-tutor-codex)
+
 ## Features
 
 - Role login for teachers and students.
@@ -130,6 +132,35 @@ https://ai-tutor-codex-frontend.onrender.com
 ```
 
 If Render assigns different URLs, update `CORS_ORIGIN` on the API and `VITE_API_URL` on the frontend.
+
+## Live Deployment Test Checklist
+
+After Render deploys both services:
+
+1. Open the API health endpoint:
+
+```text
+https://your-render-api-url.onrender.com/api/health
+```
+
+Expected:
+
+```json
+{
+  "ok": true,
+  "openaiConfigured": true,
+  "databaseConfigured": true
+}
+```
+
+2. Open the frontend URL.
+3. Log in as Admin and confirm usage limits are visible.
+4. Log out, log in as Teacher, edit the course title, and refresh the page.
+5. Confirm the course title persists after refresh.
+6. Log in as Student, ask a question, review matching Student Q&A, then send to ChatGPT.
+7. Confirm the answer appears in Student Q&A.
+8. Log in as Teacher and confirm the shared student answer is visible.
+9. Ask a private Teacher Q&A question and confirm it is not visible from the Student account.
 
 ## Production Notes
 
